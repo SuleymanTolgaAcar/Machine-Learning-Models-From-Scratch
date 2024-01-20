@@ -30,7 +30,7 @@ print("Coefficients:", "b0 =", round(ols_model.b0, 4), "b1 =", round(ols_model.b
 
 plt.scatter(X, y, color="red")
 plt.plot(X, grad_y_pred, color="blue")
-plt.title("Salary vs Experience")
+plt.title("Experience vs Salary (Gradient Descent Model)")
 plt.xlabel("Years of Experience")
 plt.ylabel("Salary")
 plt.show()
