@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 
-class SimpleLinearRegressionModel:
+class SimpleLinearRegression:
     X = None
     y = None
     b0 = None

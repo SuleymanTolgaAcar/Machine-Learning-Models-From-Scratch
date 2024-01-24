@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 
-class MultipleLinearRegressionModel:
+class MultipleLinearRegression:
     X = None
     y = None
     b = None
