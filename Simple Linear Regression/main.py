@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import sys
 
-sys.path.append("Utility")
+sys.path.append("utils")
 
 from simple_linear_regression import SimpleLinearRegression
 from metrics import R_squared
@@ -12,12 +12,14 @@ df = pd.read_csv("Simple Linear Regression/Salary_Data.csv", index_col=False)
 X = df.iloc[:, 0].values
 y = df.iloc[:, 1].values
 
-grad_model = SimpleLinearRegression()
-grad_model.fit(X, y, gradient_descent=True, epochs=1000, learning_rate=0.01)
+grad_model = SimpleLinearRegression(
+    epochs=1000, learning_rate=0.01, algorithm="gradient_descent"
+)
+grad_model.fit(X, y)
 grad_y_pred = grad_model.predict(X)
 
-ols_model = SimpleLinearRegression()
-ols_model.fit(X, y, gradient_descent=False)
+ols_model = SimpleLinearRegression(algorithm="ordinary_least_squares")
+ols_model.fit(X, y)
 ols_y_pred = ols_model.predict(X)
 
 print("Gradient Descent Model:")

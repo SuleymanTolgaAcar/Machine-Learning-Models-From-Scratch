@@ -8,7 +8,20 @@ class KMeansClustering:
         self.centroids = None
         self.clusters = None
 
-    def fit(self, X, max_iterations=1000, tolerance=1e-5):
+    def _assign_clusters(self, X):
+        clusters = []
+        for point in X:
+            distances = np.sqrt(((self.centroids - point) ** 2).sum(axis=1))
+            clusters.append(distances.argmin())
+        return np.array(clusters)
+
+    def _update_centroids(self, X):
+        new_centroids = []
+        for cluster in range(self.k):
+            new_centroids.append(X[self.clusters == cluster].mean(axis=0))
+        return np.array(new_centroids)
+
+    def predict(self, X, max_iterations=1000, tolerance=1e-5):
         self.centroids = X[np.random.choice(len(X), self.k, replace=False)]
 
         for _ in range(max_iterations):
@@ -20,16 +33,3 @@ class KMeansClustering:
 
         self.clusters = self.assign_clusters(X)
         return self.clusters
-
-    def assign_clusters(self, X):
-        clusters = []
-        for point in X:
-            distances = np.sqrt(((self.centroids - point) ** 2).sum(axis=1))
-            clusters.append(distances.argmin())
-        return np.array(clusters)
-
-    def update_centroids(self, X):
-        new_centroids = []
-        for cluster in range(self.k):
-            new_centroids.append(X[self.clusters == cluster].mean(axis=0))
-        return np.array(new_centroids)
