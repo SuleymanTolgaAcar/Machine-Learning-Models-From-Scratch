@@ -1,14 +1,13 @@
-import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-import sys
 
-sys.path.append("utils")
-from metrics import R_squared
-from utils import normalize, train_test_split
-from multiple_linear_regression import MultipleLinearRegression
+from utils.metrics import R_squared
+from utils.math import normalize
+from utils.misc import train_test_split
 
-df = pd.read_csv("Multiple Linear Regression/Advertising and Sales.csv")
+from .multiple_linear_regression import MultipleLinearRegression
+
+df = pd.read_csv("multiple_linear_regression/Advertising and Sales.csv")
 df = df.dropna()
 df = normalize(df.loc[:, ["TV", "Radio", "Social Media", "Sales"]])
 X, y = df.iloc[:, :-1], df.iloc[:, -1]

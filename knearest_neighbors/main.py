@@ -2,9 +2,9 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from k_nearest_neighbors import KNearestNeighbors
+from .k_nearest_neighbors import KNearestNeighbors
 
-df = pd.read_csv("K-Nearest Neighbors\\KNNAlgorithmDataset.csv")
+df = pd.read_csv("knearest_neighbors/KNNAlgorithmDataset.csv")
 y = df["diagnosis"].values
 X = df[["radius_mean", "texture_mean"]].values
 

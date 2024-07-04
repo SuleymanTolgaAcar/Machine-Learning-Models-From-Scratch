@@ -1,7 +1,6 @@
-import numpy as np
 import pandas as pd
 
-from johnsons_rule import JohnsonsRule
+from .johnsons_rule import JohnsonsRule
 
 df = pd.DataFrame(
     {
@@ -14,4 +13,4 @@ df = pd.DataFrame(
 model = JohnsonsRule()
 sequence = model.predict(df)
 
-print(sequence)
+print(list(map(lambda x: str(x), sequence)))
