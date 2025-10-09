@@ -25,11 +25,11 @@ class KMeansClustering:
         self.centroids = X[np.random.choice(len(X), self.k, replace=False)]
 
         for _ in range(max_iterations):
-            self.clusters = self.assign_clusters(X)
-            new_centroids = self.update_centroids(X)
+            self.clusters = self._assign_clusters(X)
+            new_centroids = self._update_centroids(X)
             if np.max(np.abs(self.centroids - new_centroids)) < tolerance:
                 break
             self.centroids = new_centroids
 
-        self.clusters = self.assign_clusters(X)
+        self.clusters = self._assign_clusters(X)
         return self.clusters

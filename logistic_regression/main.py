@@ -1,10 +1,9 @@
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from logistic_regression import LogisticRegression
+from .logistic_regression import LogisticRegression
 
-df = pd.read_csv(filepath_or_buffer="Logistic Regression/diabetes2.csv")
+df = pd.read_csv(filepath_or_buffer="logistic_regression/diabetes2.csv")
 X = df.iloc[:, :-1].values
 y = df.iloc[:, -1].values
 

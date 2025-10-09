@@ -1,8 +1,6 @@
 import numpy as np
-import sys
 
-sys.path.append("utils")
-from utils import sigmoid
+from utils.math import sigmoid
 
 
 class LogisticRegression:

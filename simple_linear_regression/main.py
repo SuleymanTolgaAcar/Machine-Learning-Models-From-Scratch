@@ -1,14 +1,10 @@
-import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-import sys
 
-sys.path.append("utils")
+from .simple_linear_regression import SimpleLinearRegression
+from utils.metrics import R_squared
 
-from simple_linear_regression import SimpleLinearRegression
-from metrics import R_squared
-
-df = pd.read_csv("Simple Linear Regression/Salary_Data.csv", index_col=False)
+df = pd.read_csv("simple_linear_regression/Salary_Data.csv", index_col=False)
 X = df.iloc[:, 0].values
 y = df.iloc[:, 1].values
 
